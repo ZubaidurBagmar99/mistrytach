@@ -3,11 +3,11 @@ import Img from "../../assets/images/process.png";
 const Dream = () => {
     return (
         <section>
-            <div className="flex items-center p-16">
-                <div className="flex-initial w-[500px] gap-4 mt-[-300px]">
-                    <img src={Img} alt="" className="w-[550px] h-[500px]" />
+            <div className="flex flex-col lg:flex-row items-center p-10 lg:p-16">
+                <div className="flex-initial lg:w-[500px] lg:gap-4 lg:mt-0 mb-10 lg:mb-0">
+                    <img src={Img} alt="" className="w-full h-auto lg:w-[550px] lg:h-[500px]" />
                 </div>
-                <div className="ml-8 flex-initial w-[700px]">
+                <div className="flex-initial lg:w-[700px] ml-0 lg:ml-8">
                     <h3 className="text-xl mb-6">How We Create <br /><span className="text-3xl font-bold">Your Dream Living Space</span></h3>
                     <p className="mb-4">Designing your home or office in a way that creates a symphony inside takes organized efforts. We have a defined process of how to create and deliver the right design to you. First of all, we listen to your requirements carefully, that guide us in making a design of your choice.</p>
                     <h4>1. <span className="text-xl mb-3 text-blue-500">Meeting with Client ›</span></h4>

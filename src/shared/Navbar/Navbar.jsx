@@ -11,25 +11,37 @@ const NavBar = () => {
   const [landscapeDropDown, setLandscapeDropDown] = useState(false);
   const [educationalDropDown, setEducationalDropDown] = useState(false);
   const [steelStructuresDropDown, setSteelStructuresDropDown] = useState(false);
-  const [blogDropDown, setBlogDropDown] = useState(false);
+  // const [blogDropDown, setBlogDropDown] = useState(false);
   const [aboutUsDropDown, setAboutUsDropDown] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-blue-500 ">
-      <div className="block lg:hidden">
-        <button className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white">
-          <svg
-            className="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
+    <nav className="flex flex-col lg:flex-row items-center justify-center bg-blue-500 ">
+      <div className="flex items-center justify-between px-4 py-2 lg:p-0">
+        <button className="block lg:hidden  items-center px-3 py-2 border rounded text-white border-white hover:text-white hover:border-white" onClick={() => setMenuOpen(!menuOpen)}>
+        <svg
+            className="h-6 w-6 fill-current"
+            viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            {menuOpen ? (
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+              />
+            ) : (
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M4 6H20V7H4V6ZM4 11H20V12H4V11ZM4 16H20V17H4V16Z"
+              />
+            )}
           </svg>
         </button>
       </div>
-      <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-center">
-        <div className="text-sm lg:flex-grow">
+      <div className={`lg:flex lg:flex-row lg:items-center lg:justify-between ${menuOpen ? "block" : "hidden"}`}>
+        <div className="text-sm lg:flex-growflex flex-col lg:flex-row">
             <NavLink
             //   onMouseEnter={() => setHomeDropDown(true)}
             //   onMouseLeave={() => setHomeDropDown(false)}
@@ -63,19 +75,19 @@ const NavBar = () => {
                       Home Interior
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/villa-interior"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Villa Interior
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/duplex-house"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Duplex House
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/luxury-pent-house"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Luxury House
@@ -83,25 +95,25 @@ const NavBar = () => {
                   </div>
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu3"
+                      to="/home-renovation"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Home Renovation
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/apartments"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Apartment
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/loft-interior"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Loft Interior
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/islamic-interior"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
                       Islamic Interior
@@ -125,35 +137,53 @@ const NavBar = () => {
               <div
               onMouseEnter={()=> setCommercialDropDown(true)}
               onMouseLeave={() => setCommercialDropDown(false)}
-              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-64 left-0 top-full mt-3"
+              className="absolute z-10 bg-white shadow-md py-2 rounded-sm text-sm w-96 left-0 top-full mt-3"
             >
                 <div className="flex">
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu1"
+                      to="/office-design"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 1
+                      Office Design
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/corporate"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 2
+                      Corporate
+                    </NavLink>
+                    <NavLink
+                      to="/retail-shop"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Retail Shop - store
+                    </NavLink>
+                    <NavLink
+                      to="/news-room"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      News Room
                     </NavLink>
                   </div>
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu3"
+                      to="/modeling-rendering"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 3
+                      3D Modeling & Rendering
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/baying-house"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 4
+                      Buying House
+                    </NavLink>
+                    <NavLink
+                      to="/auditorium-design"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Auditorium Interior Design
                     </NavLink>
                   </div>
                 </div>
@@ -173,35 +203,35 @@ const NavBar = () => {
             <div
             onMouseEnter={()=> setSwimmingPoolDropDown(true)}
               onMouseLeave={() => setSwimmingPoolDropDown(false)}
-              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-64 left-0 top-full mt-3"
+              className="absolute z-10 bg-white shadow-md py-2 rounded-sm text-sm w-[450px] left-0 top-full mt-3"
             >
                <div className="flex">
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu1"
+                      to="/indoor-swimming-pool"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 1
+                      Indoor Swimming Pool
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/outdoor-swimming-pool"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 2
+                      Outdoor Swimming Pool
                     </NavLink>
                   </div>
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu3"
+                      to="/modern-pool"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 3
+                     Modern Houses With Pools
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/rooftop-swimming-pool"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 4
+                      Rooftop Swimming Pool
                     </NavLink>
                   </div>
                 </div>
@@ -221,35 +251,59 @@ const NavBar = () => {
             <div
             onMouseEnter={()=> setHealthcareDropDown(true)}
               onMouseLeave={() => setHealthcareDropDown(false)}
-              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-64 left-0 top-full mt-3"
+              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-96 left-0 top-full mt-3"
             >
                 <div className="flex">
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu1"
+                      to="/hospital-space-interior"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 1
+                      Hospital Space Interior
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/dental-clinic"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 2
+                      Dental Clinic Interior
+                    </NavLink>
+                    <NavLink
+                      to="/rehabilitation-clinic"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Rehabilitation Center
+                    </NavLink>
+                    <NavLink
+                      to="/healthcare-center"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Healthcare Center
                     </NavLink>
                   </div>
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu3"
+                      to="/medical-clinic"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 3
+                      Medical Clinic
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/diagnostic-center"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 4
+                      Diagnostics Center
+                    </NavLink>
+                    <NavLink
+                      to="/spa-beauty-parlour"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Spa & Beauty Parlour
+                    </NavLink>
+                    <NavLink
+                      to="/bath-house-design"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Bath House Design
                     </NavLink>
                   </div>
                 </div>
@@ -269,34 +323,46 @@ const NavBar = () => {
             <div
             onMouseEnter={()=> setHospitalsDropDown(true)}
               onMouseLeave={()=> setHospitalsDropDown(false)}
-              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-64 left-0 top-full mt-3">
+              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-96 left-0 top-full mt-3">
                 <div className="flex">
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu1"
+                      to="/Coffee-shop"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 1
+                      Coffee Shop
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/cafeteria"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 2
+                      Cafeteria
+                    </NavLink>
+                    <NavLink
+                      to="/restaurant"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Restaurant
                     </NavLink>
                   </div>
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu3"
+                      to="/fast-food"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 3
+                      Fast Food
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/resort"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 4
+                      Resort / Eco-Resort
+                    </NavLink>
+                    <NavLink
+                      to="/lodge-cabin"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Lodge Cabin
                     </NavLink>
                   </div>
                 </div>
@@ -316,34 +382,40 @@ const NavBar = () => {
             <div
             onMouseEnter={()=> setLandscapeDropDown(true)}
               onMouseLeave={()=> setLandscapeDropDown(false)}
-              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-64 left-0 top-full mt-3">
+              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-[450px] left-0 top-full mt-3">
                 <div className="flex">
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu1"
+                      to="/interior-landscape-design"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 1
+                      Interior Landscape Design
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/exterior-landscape-design"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 2
+                      Exterior Landscape Design
+                    </NavLink>
+                    <NavLink
+                      to="/fountain-rooftop-design"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Fountain, Rooftop Garden
                     </NavLink>
                   </div>
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu3"
+                      to="/garden-pond-design"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 3
+                      Garden Pond Design
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/rooftop-garden-design"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 4
+                      Rooftop Garden Design
                     </NavLink>
                   </div>
                 </div>
@@ -363,34 +435,22 @@ const NavBar = () => {
             <div
             onMouseEnter={()=> setEducationalDropDown(true)}
               onMouseLeave={()=> setEducationalDropDown(false)}
-              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-64 left-0 top-full mt-3">
+              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-[450px] left-0 top-full mt-3">
                 <div className="flex">
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu1"
+                      to="/school-college-university"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 1
-                    </NavLink>
-                    <NavLink
-                      to="/submenu2"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    >
-                      Subcategory 2
+                      School, Collage, University
                     </NavLink>
                   </div>
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu3"
+                      to="/recreation-training"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 3
-                    </NavLink>
-                    <NavLink
-                      to="/submenu4"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    >
-                      Subcategory 4
+                      Recreation & Training
                     </NavLink>
                   </div>
                 </div>
@@ -401,7 +461,7 @@ const NavBar = () => {
             <NavLink
             onMouseEnter={()=> setSteelStructuresDropDown(true)}
             onMouseLeave={()=> setSteelStructuresDropDown(false)}
-            to="/steel-structure"
+            to="/steel-structures"
             className="block mt-4 lg:inline-block lg:mt-0 text-white    p-2      text-base hover:bg-white hover:text-gray-900 mr-4"
           >
             Steel Structure
@@ -410,34 +470,40 @@ const NavBar = () => {
             <div
             onMouseEnter={()=> setSteelStructuresDropDown(true)}
               onMouseLeave={()=> setSteelStructuresDropDown(false)}
-              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-64 left-0 top-full mt-3">
+              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-96 left-0 top-full mt-3">
                 <div className="flex">
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu1"
+                      to="/steel-frame"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 1
+                      Steel Frame
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/steel-building"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 2
+                      Steel Building
+                    </NavLink>
+                    <NavLink
+                      to="/container-homes"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                     Container Homes
                     </NavLink>
                   </div>
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu3"
+                      to="/steel-fabrication"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 3
+                      Steel Fabrication
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/metal-frame-staircase"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 4
+                      Metal frame staircase
                     </NavLink>
                   </div>
                 </div>
@@ -446,50 +512,14 @@ const NavBar = () => {
             </div>
             <div className="relative inline">
             <NavLink
-            onMouseEnter={()=> setBlogDropDown(true)}
-            onMouseLeave={()=> setBlogDropDown(false)}
+            // onMouseEnter={()=> setBlogDropDown(true)}
+            // onMouseLeave={()=> setBlogDropDown(false)}
             to="/blog"
             className="block mt-4 lg:inline-block lg:mt-0 text-white    p-2      text-base hover:bg-white hover:text-gray-900 mr-4"
           >
             Blog
           </NavLink>
-          {blogDropDown && (
-            <div
-            onMouseEnter={()=> setBlogDropDown(true)}
-              onMouseLeave={()=> setBlogDropDown(false)}
-              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-64 left-0 top-full mt-3">
-                <div className="flex">
-                  <div className="w-1/2">
-                    <NavLink
-                      to="/submenu1"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    >
-                      Subcategory 1
-                    </NavLink>
-                    <NavLink
-                      to="/submenu2"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    >
-                      Subcategory 2
-                    </NavLink>
-                  </div>
-                  <div className="w-1/2">
-                    <NavLink
-                      to="/submenu3"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    >
-                      Subcategory 3
-                    </NavLink>
-                    <NavLink
-                      to="/submenu4"
-                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                    >
-                      Subcategory 4
-                    </NavLink>
-                  </div>
-                </div>
-              </div>
-                )}
+          
             </div>
             <div className="relative inline">
             <NavLink
@@ -504,34 +534,46 @@ const NavBar = () => {
             <div
             onMouseEnter={()=> setAboutUsDropDown(true)}
               onMouseLeave={()=> setAboutUsDropDown(false)}
-              className="absolute z-10 bg-white shadow-md py-2 rounded-lg text-sm w-64 left-0 top-full mt-3">
+              className="absolute z-10 bg-white shadow-md py-2 rounded-sm text-sm w-96 right-0 top-full mt-3">
                 <div className="flex">
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu1"
+                      to="/jobs"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 1
+                      Completed Jobs
                     </NavLink>
                     <NavLink
-                      to="/submenu2"
+                      to="/reviews"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 2
+                      Reviews
+                    </NavLink>
+                    <NavLink
+                      to="/awards-affiliations"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Awards & Affiliations
                     </NavLink>
                   </div>
                   <div className="w-1/2">
                     <NavLink
-                      to="/submenu3"
+                      to="/careers"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 3
+                      Careers
                     </NavLink>
                     <NavLink
-                      to="/submenu4"
+                      to="/hours-location"
                       className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                     >
-                      Subcategory 4
+                      Hours & Location
+                    </NavLink>
+                    <NavLink
+                      to="/contact-us"
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                    >
+                      Contact Us
                     </NavLink>
                   </div>
                 </div>

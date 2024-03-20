@@ -3,15 +3,7 @@ import Img from "../../assets/images/blue-wave-background.png";
 const Footer = () => {
   return (
     <section>
-      <div className="bg-gradient-to-r from-green-600 to-lime-500 py-8  text-center">
-        <button className="btn btn-outline text-green-500 border-solid border-1 border-slate-950 hover:border-none hover:text-white hover:underline hover:bg-stone-600 bg-white mr-3 ">
-          ASK FOR A QUOTE: <br />
-          THE COST OF HOME RENOVATION!
-        </button>
-        <button className="btn btn-outline text-green-500 border-solid border-1 border-slate-950 hover:border-none hover:text-white hover:underline hover:bg-stone-600 bg-white ml-3 ">
-          INTERIOR INSPIRATION: <br /> DESIGN DECORATION TIPS & TRICKS!
-        </button>
-      </div>
+      
       <footer className="bg-footer-img bg-cover bg-center relative footer p-10 bg-gradient-to-r from-green-600 to-lime-500 text-base-content ">
         <div className="footer-overlay absolute inset-0 opacity-30 flex justify-center items-center">
           <img
@@ -71,7 +63,7 @@ const Footer = () => {
       <hr />
       <footer className="footer footer-center p-4 bg-gradient-to-r from-green-600 to-lime-500  inset-0 opacity-60 ">
         <aside>
-          <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+          <p className="text-white font-bold">Copyright © 2024 - All right reserved by Mistrytech Ltd</p>
         </aside>
       </footer>
     </section>

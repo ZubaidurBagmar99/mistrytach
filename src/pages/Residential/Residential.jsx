@@ -1,16 +1,21 @@
-import HomeInterior from "./HomeInterior";
-import SideNavHome from "./SideNavHome";
+// import HomeInterior from "./HomeInterior";
+import { Outlet } from "react-router-dom";
+// import SideNavHome from "./SideNavHome";
+import HomeInterior from "../HomeIniterior/HomeInterior";
+
 
 const Residential = () => {
   return (
     <>
-      <div className="flex justify-center">
-        <SideNavHome></SideNavHome>
-        <div className="w-4/5">
-          {" "}
+      <div className="flex ">
+        {/* <SideNavHome></SideNavHome> */}
+        
+          
+            <HomeInterior></HomeInterior>
           {/* Adjust the width as per your requirement */}
-          <HomeInterior></HomeInterior>
-        </div>
+          {/* <HomeInterior></HomeInterior> */}
+          <Outlet></Outlet>
+        
       </div>
     </>
   );
